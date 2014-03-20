@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Stanford Exhibition Space feature.
+ */
+
+include_once 'stanford_exhibition_space.features.inc';

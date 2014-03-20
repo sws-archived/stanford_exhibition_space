@@ -1,0 +1,13 @@
+name = Stanford Exhibition Space Views
+description = Stanford Exhibition Space Views
+core = 7.x
+package = Stanford Art & Art History
+version = 7.x-1.0
+project = stanford_exhibition_space_views
+dependencies[] = stanford_exhibition
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = stanford_exhibition_spaces
+features_exclude[dependencies][ctools] = ctools
+project path = sites/default/modules/stanford/stanford_exhibition_space/modules
