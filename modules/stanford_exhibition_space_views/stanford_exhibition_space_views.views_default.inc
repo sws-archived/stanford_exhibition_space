@@ -107,7 +107,7 @@ function stanford_exhibition_space_views_views_default_views() {
 <div class="span3">
 [field_s_exh_thumb]
 </div>
-<div class="span6">
+<div class="span9">
 [field_s_exh_dates_duration]<br />
 [title]
 [body]

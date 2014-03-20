@@ -1,0 +1,13 @@
+name = Stanford Exhibition Space Layouts
+description = Layouts for Stanford Exhibition Spaces
+core = 7.x
+package = Stanford Art & Art History
+version = 7.x-1.0
+project = stanford_exhibition_space_layouts
+dependencies[] = context
+dependencies[] = stanford_exhibition_views
+dependencies[] = views
+features[context][] = exhibition_spaces_landing
+features[ctools][] = context:context:3
+features[features_api][] = api:2
+project path = sites/default/modules/stanford/stanford_exhibition_space/modules
