@@ -27,6 +27,22 @@ function stanford_exhibition_space_ds_field_settings_info() {
       'label' => 'hidden',
       'format' => 'default',
     ),
+    'field_s_exspace_visitor_info' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'lb-el' => 'h2',
+        ),
+      ),
+    ),
+    'field_s_exspace_other_info' => array(
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'lb-el' => 'h2',
+        ),
+      ),
+    ),
   );
   $export['node|stanford_exhibition_space|full'] = $ds_fieldsetting;
 
