@@ -50,8 +50,8 @@ function stanford_exhibition_space_ds_custom_fields_info() {
   $ds_field->ui_limit = '';
   $ds_field->properties = array(
     'code' => array(
-      'value' => '<p><a href="../../exhibitions">See upcoming exhibitions</a></p>
-<p><a href="../../exhibitions-history">See past exhibitions</a></p>
+      'value' => '<p><a href="../exhibitions">See upcoming exhibitions</a></p>
+<p><a href="../exhibitions-history">See past exhibitions</a></p>
 ',
       'format' => 'content_editor_text_format',
     ),
