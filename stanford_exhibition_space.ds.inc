@@ -26,12 +26,24 @@ function stanford_exhibition_space_ds_field_settings_info() {
       'weight' => '1',
       'label' => 'hidden',
       'format' => 'default',
+      'formatter_settings' => array(
+        'ft' => array(
+          'func' => 'theme_ds_field_expert',
+          'ow' => TRUE,
+          'ow-el' => 'div',
+          'ow-cl' => 'well',
+          'ow-def-cl' => FALSE,
+          'ow-at' => '',
+          'ow-def-at' => FALSE,
+        ),
+      ),
     ),
     'field_s_exspace_visitor_info' => array(
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_expert',
           'lb-el' => 'h2',
+          'lb-col' => TRUE,
         ),
       ),
     ),
@@ -40,6 +52,7 @@ function stanford_exhibition_space_ds_field_settings_info() {
         'ft' => array(
           'func' => 'theme_ds_field_expert',
           'lb-el' => 'h2',
+          'lb-col' => TRUE,
         ),
       ),
     ),
