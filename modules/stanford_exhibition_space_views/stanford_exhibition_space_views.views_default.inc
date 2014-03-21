@@ -48,7 +48,8 @@ function stanford_exhibition_space_views_views_default_views() {
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['body']['alter']['max_length'] = '1200';
+  $handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['max_length'] = '300';
   $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['body']['alter']['html'] = TRUE;
   $handler->display->display_options['fields']['body']['element_type'] = 'div';
@@ -69,7 +70,7 @@ function stanford_exhibition_space_views_views_default_views() {
   $handler->display->display_options['fields']['field_s_exh_dates_duration']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['field_s_exh_dates_duration']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_s_exh_dates_duration']['settings'] = array(
-    'format_type' => 'stanford_date_year_time',
+    'format_type' => 'stanford_month_date_year',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -90,14 +91,20 @@ function stanford_exhibition_space_views_views_default_views() {
     'image_style' => 'med-landscape',
     'image_link' => 'content',
   );
-  /* Field: Content: Link */
-  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
-  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
-  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
-  $handler->display->display_options['fields']['view_node']['label'] = '';
-  $handler->display->display_options['fields']['view_node']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['view_node']['text'] = 'More about this exhibit';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['text'] = 'More about this exhibit';
+  $handler->display->display_options['fields']['nid']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['nid']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['alt'] = 'More about this exhibit';
+  $handler->display->display_options['fields']['nid']['alter']['link_class'] = 'more-link';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -108,10 +115,10 @@ function stanford_exhibition_space_views_views_default_views() {
 [field_s_exh_thumb]
 </div>
 <div class="span9">
-[field_s_exh_dates_duration]<br />
-[title]
+<span class="descriptor">[field_s_exh_dates_duration]</span>
+<h3>[title]</h3>
 [body]
-[view_node] 
+[nid] 
 </div>
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
