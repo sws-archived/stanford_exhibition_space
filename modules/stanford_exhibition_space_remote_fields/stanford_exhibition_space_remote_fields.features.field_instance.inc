@@ -21,7 +21,7 @@ function stanford_exhibition_space_remote_fields_field_default_field_instances()
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
-          'link' => FALSE,
+          'link' => 1,
         ),
         'type' => 'entityreference_label',
         'weight' => 22,
