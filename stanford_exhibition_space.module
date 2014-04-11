@@ -5,3 +5,68 @@
  */
 
 include_once 'stanford_exhibition_space.features.inc';
+
+/**
+ * Implements hook_block_info().
+ */
+function stanford_exhibition_space_block_info() {
+
+  $blocks['ses_two_links'] = array(
+    'info'    => t('Exhibition Space On View Now Exhbition Links'),
+    'cache'   => DRUPAL_CACHE_PER_PAGE,
+  );
+
+  return $blocks;
+}
+
+
+/**
+ * Returns the see upcoming exhibitions and see past exhibitions links.
+ * @return [type] [description]
+ */
+function stanford_exhibition_space_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'ses_two_links':
+
+    $output = "";
+    $a0 = arg(0);
+    $a1 = arg(1);
+
+    if ($a0 == "node" && is_numeric($a1)) {
+      $node = node_load($a1);
+    }
+
+    if (!isset($node->nid)) { break; }
+
+    // See upcoming link.
+    $output .= "<p>" . l('See upcoming exhibitions', 'exhibition-space/space/' . $node->nid, array('attributes' => array('rel' => 'nofollow'))) . "</p>";
+    // See past.
+    $output .= "<p>" . l('See past exhibitions', 'exhibitions/past-exhibitions', array('attributes' => array('rel' => 'nofollow'))) . "</p>";
+
+    $block['content'] = $output;
+
+    break;
+  }
+
+  return $block;
+}
+
+/**
+ * Alter the exhibition by space to change the title to be the exhibition space title
+ * @param  [type] $view [description]
+ * @return [type]       [description]
+ */
+function stanford_exhibition_space_views_pre_render(&$view) {
+  if ($view->name == "stanford_exhibition_spaces" && $view->current_display == 'exhibition_by_space') {
+    $a2 = arg(2);
+    if (is_numeric($a2)) {
+      $space = node_load($a2);
+      if (isset($space->title)) {
+        $view->build_info['title'] = $space->title;
+      }
+    }
+  }
+}
+

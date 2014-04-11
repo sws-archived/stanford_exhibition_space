@@ -22,10 +22,15 @@ function stanford_exhibition_space_views_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Stanford Exhibition Spaces';
+  $handler->display->display_options['title'] = 'Exhibition Space';
+  $handler->display->display_options['css_class'] = 'exhibition-by-spaces';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'time';
+  $handler->display->display_options['cache']['results_lifespan'] = '3600';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['output_lifespan'] = '3600';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
@@ -171,6 +176,50 @@ function stanford_exhibition_space_views_views_default_views() {
   $handler->display->display_options['css_class'] = 'on-view-now';
   $handler->display->display_options['display_description'] = 'On View Right Now Block';
   $handler->display->display_options['block_description'] = 'On View Now - Exhibition Spaces';
+
+  /* Display: Exhibition By Space */
+  $handler = $view->new_display('page', 'Exhibition By Space', 'exhibition_by_space');
+  $handler->display->display_options['display_description'] = 'Exhibition By Space';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['label'] = 'No Results Go To Spaces Overview';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no upcoming exhibitions for this space.</p>';
+  $handler->display->display_options['empty']['area']['format'] = 'content_editor_text_format';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Dates Duration -  start date (field_s_exh_dates_duration) */
+  $handler->display->display_options['sorts']['field_s_exh_dates_duration_value']['id'] = 'field_s_exh_dates_duration_value';
+  $handler->display->display_options['sorts']['field_s_exh_dates_duration_value']['table'] = 'field_data_field_s_exh_dates_duration';
+  $handler->display->display_options['sorts']['field_s_exh_dates_duration_value']['field'] = 'field_s_exh_dates_duration_value';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'stanford_exhibition' => 'stanford_exhibition',
+  );
+  /* Filter criterion: Content: Dates Duration - end date (field_s_exh_dates_duration:value2) */
+  $handler->display->display_options['filters']['field_s_exh_dates_duration_value2']['id'] = 'field_s_exh_dates_duration_value2';
+  $handler->display->display_options['filters']['field_s_exh_dates_duration_value2']['table'] = 'field_data_field_s_exh_dates_duration';
+  $handler->display->display_options['filters']['field_s_exh_dates_duration_value2']['field'] = 'field_s_exh_dates_duration_value2';
+  $handler->display->display_options['filters']['field_s_exh_dates_duration_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_s_exh_dates_duration_value2']['default_date'] = 'today';
+  $handler->display->display_options['path'] = 'exhibition-space/space/%';
   $export['stanford_exhibition_spaces'] = $view;
 
   return $export;
