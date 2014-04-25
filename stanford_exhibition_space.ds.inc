@@ -17,7 +17,7 @@ function stanford_exhibition_space_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'stanford_exhibition_space';
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
-    'exhibitions_see_all' => array(
+    'exhibition_space_two_links' => array(
       'weight' => '2',
       'label' => 'hidden',
       'format' => 'default',
@@ -38,7 +38,7 @@ function stanford_exhibition_space_ds_field_settings_info() {
         ),
       ),
     ),
-    'field_s_exspace_visitor_info' => array(
+    'field_s_exspace_other_info' => array(
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_expert',
@@ -47,7 +47,7 @@ function stanford_exhibition_space_ds_field_settings_info() {
         ),
       ),
     ),
-    'field_s_exspace_other_info' => array(
+    'field_s_exspace_visitor_info' => array(
       'formatter_settings' => array(
         'ft' => array(
           'func' => 'theme_ds_field_expert',
@@ -122,17 +122,19 @@ function stanford_exhibition_space_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'body',
-        1 => 'on_view_now_block',
-        2 => 'exhibitions_see_all',
-        3 => 'field_s_exspace_visitor_info',
-        4 => 'field_s_exspace_other_info',
+        0 => 'group_summary_wrapper',
+        1 => 'body',
+        2 => 'on_view_now_block',
+        3 => 'exhibition_space_two_links',
+        4 => 'field_s_exspace_visitor_info',
+        5 => 'field_s_exspace_other_info',
       ),
     ),
     'fields' => array(
+      'group_summary_wrapper' => 'ds_content',
       'body' => 'ds_content',
       'on_view_now_block' => 'ds_content',
-      'exhibitions_see_all' => 'ds_content',
+      'exhibition_space_two_links' => 'ds_content',
       'field_s_exspace_visitor_info' => 'ds_content',
       'field_s_exspace_other_info' => 'ds_content',
     ),
