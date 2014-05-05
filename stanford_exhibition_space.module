@@ -41,9 +41,9 @@ function stanford_exhibition_space_block_view($delta = '') {
     if (!isset($node->nid)) { break; }
 
     // See upcoming link.
-    $output .= "<p>" . l('See upcoming exhibitions', 'exhibition-space/space/' . $node->nid, array('attributes' => array('rel' => 'nofollow'))) . "</p>";
+    $output .= "<p>" . l('See upcoming exhibitions', 'exhibition-space/space/' . $node->nid, array('attributes' => array('rel' => 'nofollow', 'class' => 'more-link'))) . "</p>";
     // See past.
-    $output .= "<p>" . l('See past exhibitions', 'exhibition-space/past-space/' . $node->nid, array('attributes' => array('rel' => 'nofollow'))) . "</p>";
+    $output .= "<p>" . l('See past exhibitions', 'exhibition-space/past-space/' . $node->nid, array('attributes' => array('rel' => 'nofollow', 'class' => 'more-link'))) . "</p>";
 
     $block['content'] = $output;
 
