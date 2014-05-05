@@ -59,19 +59,29 @@ function stanford_exhibition_space_block_view($delta = '') {
  * @return [type]       [description]
  */
 function stanford_exhibition_space_views_post_render(&$view) {
+
+  // eg: /exhibition-space/space/1549
   if ($view->name == "stanford_exhibition_spaces" && $view->current_display == 'exhibition_by_space') {
     $a2 = arg(2);
     if (is_numeric($a2)) {
       $space = node_load($a2);
       if (isset($space->title)) {
         $title = $space->title . ' Upcoming Exhibitions';
-        // $view->build_info['title'] = $title;
-        // $view->display[$view->current_display]->display_options["title"] = "New Title";
-        // $view->display[$view->current_display]->handler->options["title"] = "The New Title";
         $view->set_title($title);
-
       }
     }
   }
+  // eg: /exhibition-space/past-space/1549
+  if ($view->name == "stanford_exhibition_spaces" && $view->current_display == 'past_exh_by_space') {
+    $a2 = arg(2);
+    if (is_numeric($a2)) {
+      $space = node_load($a2);
+      if (isset($space->title)) {
+        $title = $space->title . ' Past Exhibitions';
+        $view->set_title($title);
+      }
+    }
+  }
+
 }
 
