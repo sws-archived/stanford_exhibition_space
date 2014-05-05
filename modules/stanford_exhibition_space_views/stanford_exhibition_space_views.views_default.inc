@@ -236,7 +236,7 @@ function stanford_exhibition_space_views_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'No Results Go To Spaces Overview';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no upcoming exhibitions for this space.</p>';
+  $handler->display->display_options['empty']['area']['content'] = '<p>Sorry, there are no past exhibitions for this space.</p>';
   $handler->display->display_options['empty']['area']['format'] = 'content_editor_text_format';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Dates Duration -  start date (field_s_exh_dates_duration) */
