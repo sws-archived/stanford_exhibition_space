@@ -70,6 +70,21 @@ function stanford_exhibition_space_ds_custom_fields_info() {
 
   $ds_field = new stdClass();
   $ds_field->api_version = 1;
+  $ds_field->field = 'exhibition_space_two_links';
+  $ds_field->label = 'Exhibition Space Two Links';
+  $ds_field->field_type = 6;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = 'stanford_exhibition_space|*';
+  $ds_field->properties = array(
+    'block' => 'stanford_exhibition_space|ses_two_links',
+    'block_render' => '3',
+  );
+  $export['exhibition_space_two_links'] = $ds_field;
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
   $ds_field->field = 'exhibitions_see_all';
   $ds_field->label = 'Exhibitions See All';
   $ds_field->field_type = 5;
