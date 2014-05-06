@@ -85,3 +85,39 @@ function stanford_exhibition_space_views_post_render(&$view) {
 
 }
 
+/**
+ * Implements hook_menu_position_rule_alter
+ * @param  [type] $rule           [description]
+ * @param  [type] $context        [description]
+ * @param  [type] $rule_matches   [description]
+ * @param  [type] $set_breadcrumb [description]
+ * @return [type]                 [description]
+ */
+function stanford_exhibition_space_menu_position_rule_alter(&$rule, &$context, &$rule_matches, &$set_breadcrumb) {
+
+  // If we are on the dynamic views page we want to dynamically set the
+  // menu_position rule so that it picks up the node in the main-menu.
+  if ($rule->admin_title == "Exhibition By Space Views" && $rule_matches) {
+
+    // NID should be in arg2. If no nid go with defaults.
+    $arg2 = arg(2);
+    if (!is_numeric($arg2)) {
+      return;
+    }
+
+    // Look up the menu item by nid. Restrict to main-menu.
+    $menu_link = menu_link_get_preferred('node/' . $arg2, 'main-menu');
+
+    // If no menu link found then just return defaults.
+    if (!$menu_link) {
+      return;
+    }
+
+    // Set the menu path items so that the right place gets highlighted.
+    $rule->plid = $menu_link['plid'];
+    $rule->mlid = $menu_link['mlid'];
+
+  }
+
+}
+
