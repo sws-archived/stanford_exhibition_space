@@ -93,7 +93,7 @@ function stanford_exhibition_space_views_views_default_views() {
   $handler->display->display_options['fields']['field_s_exh_thumb']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_s_exh_thumb']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_s_exh_thumb']['settings'] = array(
-    'image_style' => 'med-landscape',
+    'image_style' => 'med-square',
     'image_link' => 'content',
   );
   /* Field: Content: Nid */
@@ -116,10 +116,10 @@ function stanford_exhibition_space_views_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="clear-both clearfix">
-<div class="span3">
+<div class="span2">
 [field_s_exh_thumb]
 </div>
-<div class="span9">
+<div class="span10">
 <span class="descriptor">[field_s_exh_dates_duration]</span>
 <h3>[title]</h3>
 [body]
@@ -175,6 +175,96 @@ function stanford_exhibition_space_views_views_default_views() {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'on-view-now';
   $handler->display->display_options['display_description'] = 'On View Right Now Block';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['max_length'] = '300';
+  $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_type'] = 'div';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '1200',
+  );
+  /* Field: Content: Dates Duration */
+  $handler->display->display_options['fields']['field_s_exh_dates_duration']['id'] = 'field_s_exh_dates_duration';
+  $handler->display->display_options['fields']['field_s_exh_dates_duration']['table'] = 'field_data_field_s_exh_dates_duration';
+  $handler->display->display_options['fields']['field_s_exh_dates_duration']['field'] = 'field_s_exh_dates_duration';
+  $handler->display->display_options['fields']['field_s_exh_dates_duration']['label'] = '';
+  $handler->display->display_options['fields']['field_s_exh_dates_duration']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_s_exh_dates_duration']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_s_exh_dates_duration']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_exh_dates_duration']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_s_exh_dates_duration']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_s_exh_dates_duration']['settings'] = array(
+    'format_type' => 'stanford_month_date_year',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Image */
+  $handler->display->display_options['fields']['field_s_exh_thumb']['id'] = 'field_s_exh_thumb';
+  $handler->display->display_options['fields']['field_s_exh_thumb']['table'] = 'field_data_field_s_exh_thumb';
+  $handler->display->display_options['fields']['field_s_exh_thumb']['field'] = 'field_s_exh_thumb';
+  $handler->display->display_options['fields']['field_s_exh_thumb']['label'] = '';
+  $handler->display->display_options['fields']['field_s_exh_thumb']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_s_exh_thumb']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_s_exh_thumb']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_exh_thumb']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_s_exh_thumb']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_s_exh_thumb']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_s_exh_thumb']['settings'] = array(
+    'image_style' => 'med-square',
+    'image_link' => 'content',
+  );
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['text'] = 'More about this exhibit';
+  $handler->display->display_options['fields']['nid']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['nid']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['alt'] = 'More about this exhibit';
+  $handler->display->display_options['fields']['nid']['alter']['link_class'] = 'more-link';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="clear-both clearfix">
+<div class="span3">
+[field_s_exh_thumb]
+</div>
+<div class="span9">
+<span class="descriptor">[field_s_exh_dates_duration]</span>
+<h3>[title]</h3>
+[body]
+[nid] 
+</div>
+</div>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['block_description'] = 'On View Now - Exhibition Spaces';
 
   /* Display: Exhibition By Space */
