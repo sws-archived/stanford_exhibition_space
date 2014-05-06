@@ -23,7 +23,7 @@ function stanford_exhibition_space_views_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Exhibitions By Space';
-  $handler->display->display_options['css_class'] = 'exhibition-by-spaces';
+  $handler->display->display_options['css_class'] = 'exhibition-by-spaces views-row-lines';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'time';
@@ -123,7 +123,7 @@ function stanford_exhibition_space_views_views_default_views() {
 <span class="descriptor">[field_s_exh_dates_duration]</span>
 <h3>[title]</h3>
 [body]
-[nid] 
+[nid]
 </div>
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
@@ -261,7 +261,7 @@ function stanford_exhibition_space_views_views_default_views() {
 <span class="descriptor">[field_s_exh_dates_duration]</span>
 <h3>[title]</h3>
 [body]
-[nid] 
+[nid]
 </div>
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
