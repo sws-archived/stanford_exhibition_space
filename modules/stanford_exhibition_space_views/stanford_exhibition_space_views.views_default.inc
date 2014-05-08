@@ -115,11 +115,11 @@ function stanford_exhibition_space_views_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="clear-both clearfix">
-<div class="span2">
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="clear-both clearfix postcard postcard-left">
+<div class="postcard-image">
 [field_s_exh_thumb]
 </div>
-<div class="span10">
+<div class="postcard-content">
 <span class="descriptor">[field_s_exh_dates_duration]</span>
 <h3>[title]</h3>
 [body]
