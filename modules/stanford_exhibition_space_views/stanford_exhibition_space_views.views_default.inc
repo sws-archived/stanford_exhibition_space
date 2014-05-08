@@ -93,7 +93,7 @@ function stanford_exhibition_space_views_views_default_views() {
   $handler->display->display_options['fields']['field_s_exh_thumb']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_s_exh_thumb']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_s_exh_thumb']['settings'] = array(
-    'image_style' => 'med-square',
+    'image_style' => 'sm-square',
     'image_link' => 'content',
   );
   /* Field: Content: Nid */
@@ -123,7 +123,7 @@ function stanford_exhibition_space_views_views_default_views() {
 <span class="descriptor">[field_s_exh_dates_duration]</span>
 <h3>[title]</h3>
 [body]
-[nid]
+[nid] 
 </div>
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
@@ -261,7 +261,7 @@ function stanford_exhibition_space_views_views_default_views() {
 <span class="descriptor">[field_s_exh_dates_duration]</span>
 <h3>[title]</h3>
 [body]
-[nid]
+[nid] 
 </div>
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
