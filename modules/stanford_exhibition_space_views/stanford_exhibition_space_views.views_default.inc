@@ -303,12 +303,12 @@ function stanford_exhibition_space_views_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'stanford_exhibition' => 'stanford_exhibition',
   );
-  /* Filter criterion: Content: Dates Duration - end date (field_s_exh_dates_duration:value2) */
-  $handler->display->display_options['filters']['field_s_exh_dates_duration_value2']['id'] = 'field_s_exh_dates_duration_value2';
-  $handler->display->display_options['filters']['field_s_exh_dates_duration_value2']['table'] = 'field_data_field_s_exh_dates_duration';
-  $handler->display->display_options['filters']['field_s_exh_dates_duration_value2']['field'] = 'field_s_exh_dates_duration_value2';
-  $handler->display->display_options['filters']['field_s_exh_dates_duration_value2']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_s_exh_dates_duration_value2']['default_date'] = 'today';
+  /* Filter criterion: Content: Dates Duration -  start date (field_s_exh_dates_duration) */
+  $handler->display->display_options['filters']['field_s_exh_dates_duration_value']['id'] = 'field_s_exh_dates_duration_value';
+  $handler->display->display_options['filters']['field_s_exh_dates_duration_value']['table'] = 'field_data_field_s_exh_dates_duration';
+  $handler->display->display_options['filters']['field_s_exh_dates_duration_value']['field'] = 'field_s_exh_dates_duration_value';
+  $handler->display->display_options['filters']['field_s_exh_dates_duration_value']['operator'] = '>';
+  $handler->display->display_options['filters']['field_s_exh_dates_duration_value']['default_date'] = 'today';
   $handler->display->display_options['path'] = 'exhibition-space/space/%';
 
   /* Display: Past Exhibition By Space */
